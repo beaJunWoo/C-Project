@@ -1,15 +1,20 @@
-#include <iostream>
-#include "Pat.h"
-#include "Player.h"
-using namespace std;
+#include "Buffer.h"
 
+using namespace std;
 int main()
 {
-	Pat pat;
+	Buffer buffer;
+	buffer.InitBuffer();
+
 	while (true)
 	{
-		pat.Toto();
+		buffer.WriteBuffer(1, 1, "¿Ê", 1);
+		buffer.FlipBuffer();
+		buffer.ClearBuffer();
+		Sleep(10);
 	}
+	buffer.ReleaseBuffer();
+
 
 
 	return 0;

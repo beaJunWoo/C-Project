@@ -13,33 +13,42 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\플레이어">
-      <UniqueIdentifier>{139ee7cc-3d13-49b1-a659-8f7f2648e48f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\펫">
-      <UniqueIdentifier>{aba458cc-02a9-48d2-9627-69d59b40c533}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\Main">
       <UniqueIdentifier>{b4952cf6-0f56-403f-ad87-8a8c3f89c8b0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Main\버퍼">
+      <UniqueIdentifier>{64f79a75-6d56-4bfb-8533-3a13c5d36289}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Main\Obj">
+      <UniqueIdentifier>{3e73e9a5-ba59-4de6-ae73-db67457e10e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Main\Obj\플레이어">
+      <UniqueIdentifier>{50591714-8dc3-4852-9168-6b5ed387da59}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Player.cpp">
-      <Filter>소스 파일\플레이어</Filter>
-    </ClCompile>
-    <ClCompile Include="Pat.cpp">
-      <Filter>소스 파일\펫</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>소스 파일\Main</Filter>
     </ClCompile>
+    <ClCompile Include="Buffer.cpp">
+      <Filter>소스 파일\Main\버퍼</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj.cpp">
+      <Filter>소스 파일\Main\Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>소스 파일\Main\Obj\플레이어</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Player.h">
-      <Filter>소스 파일\플레이어</Filter>
+    <ClInclude Include="Buffer.h">
+      <Filter>소스 파일\Main\버퍼</Filter>
     </ClInclude>
-    <ClInclude Include="Pat.h">
-      <Filter>소스 파일\펫</Filter>
+    <ClInclude Include="Obj.h">
+      <Filter>소스 파일\Main\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>소스 파일\Main\Obj\플레이어</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
