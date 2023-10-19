@@ -1,1 +1,2 @@
 C:\Users\Administrator\Desktop\새 폴더\C-Project\Game\x64\Debug\Game.exe
+C:\Users\Administrator\Desktop\NGH\C-Project\Game\x64\Debug\Game.exe

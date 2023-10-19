@@ -1,19 +1,23 @@
 #include "Buffer.h"
-
+#include "Player.h"
 using namespace std;
 int main()
 {
-	Buffer buffer;
-	buffer.InitBuffer();
+	Player player;
+	player.BufferInit();
+	player.GetBuffer()->InitBuffer();
 
 	while (true)
 	{
-		buffer.WriteBuffer(1, 1, "¿Ê", 1);
-		buffer.FlipBuffer();
-		buffer.ClearBuffer();
-		Sleep(10);
+
+		player.show();
+	
+		Sleep(1000);
+		player.GetBuffer()->FlipBuffer();
+		player.GetBuffer()->ClearBuffer();
+		
 	}
-	buffer.ReleaseBuffer();
+	player.GetBuffer()->ReleaseBuffer();
 
 
 

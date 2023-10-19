@@ -1,4 +1,5 @@
 #include "Buffer.h"
+
 void Buffer::InitBuffer()
 {
 	screenIndex = 0;
@@ -38,7 +39,7 @@ void Buffer::ClearBuffer()
 	FillConsoleOutputCharacter(hBuffer[screenIndex], ' ', BufferWidth * BufferHeight, pos, &dw);
 }
 
-void Buffer::WriteBuffer(int x, int y, const char* shape, int color)
+void Buffer::WriteBuffer(int x, int y, string &shape, int color)
 {
 	COORD pos = { x * 2, y };
 
@@ -46,7 +47,7 @@ void Buffer::WriteBuffer(int x, int y, const char* shape, int color)
 	SetConsoleTextAttribute(hBuffer[screenIndex], color);
 
 	DWORD dw;
-	WriteFile(hBuffer[screenIndex], shape, strlen(shape), &dw, NULL);
+	WriteFile(hBuffer[screenIndex], &shape, shape.size() , &dw, NULL);
 }
 
 void Buffer::ReleaseBuffer()
