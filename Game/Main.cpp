@@ -12,14 +12,16 @@ int main()
 	Shape shape;
 
 	Map map1(shape.GetMapShape());
-	Player player(2, 2, shape.GetPlayerShape());
+	Player player(2, 2, shape.GetPlayerShape(),RED);
 	player.SetMap(&map1);
 
 	while (true)
 	{
 
 		player.Show();
+		player.Gravity();
 		player.Move();
+		
 		map1.Show();
 
 		buffer.FlipBuffer();

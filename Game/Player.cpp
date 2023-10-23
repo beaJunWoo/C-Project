@@ -1,10 +1,11 @@
 #include "Player.h"
 
-Player::Player(int x, int y, vector<const char*> shape)
+Player::Player(int x, int y, vector<const char*> shape,Color color)
 {
 	this->x = x;
 	this->y = y;
 	this->shape = shape;
+	this->color = color;
 }
 void Player::Move()
 {
