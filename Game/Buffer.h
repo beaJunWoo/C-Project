@@ -1,22 +1,20 @@
-#pragma once
+#pragma once 
 #include <Windows.h>
-#include <string>
-using namespace std;
 
 #define BufferWidth 80
 #define BufferHeight 40
 
 
+static HANDLE hBuffer[2];
+static int screenIndex;
 
 class Buffer
 {
-	HANDLE hBuffer[2];
-	int screenIndex;
 public:
-	void InitBuffer();
-	void FlipBuffer();
-	void ClearBuffer();
-	void WriteBuffer(int x, int y, string &shape, int color);
-	void ReleaseBuffer();
+	static void InitBuffer();
+	static void FlipBuffer();
+	static void ClearBuffer();
+	static void WriteBuffer(int x, int y, const char* shape, int color);
+	static void ReleaseBuffer();
 };
 

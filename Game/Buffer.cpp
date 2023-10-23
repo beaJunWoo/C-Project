@@ -22,7 +22,6 @@ void Buffer::InitBuffer()
 
 	SetConsoleCursorInfo(hBuffer[0], &info);
 	SetConsoleCursorInfo(hBuffer[1], &info);
-
 }
 
 void Buffer::FlipBuffer()
@@ -39,7 +38,7 @@ void Buffer::ClearBuffer()
 	FillConsoleOutputCharacter(hBuffer[screenIndex], ' ', BufferWidth * BufferHeight, pos, &dw);
 }
 
-void Buffer::WriteBuffer(int x, int y, string &shape, int color)
+void Buffer::WriteBuffer(int x, int y, const char* shape, int color)
 {
 	COORD pos = { x * 2, y };
 
@@ -47,7 +46,7 @@ void Buffer::WriteBuffer(int x, int y, string &shape, int color)
 	SetConsoleTextAttribute(hBuffer[screenIndex], color);
 
 	DWORD dw;
-	WriteFile(hBuffer[screenIndex], &shape, shape.size() , &dw, NULL);
+	WriteFile(hBuffer[screenIndex], shape, strlen(shape), &dw, NULL);
 }
 
 void Buffer::ReleaseBuffer()

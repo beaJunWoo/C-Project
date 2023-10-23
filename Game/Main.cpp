@@ -1,25 +1,32 @@
 #include "Buffer.h"
 #include "Player.h"
+#include "Map.h"
+#include "Shape.h"
 using namespace std;
+
 int main()
 {
-	Player player;
-	player.BufferInit();
-	player.GetBuffer()->InitBuffer();
+
+	Buffer buffer;
+	buffer.InitBuffer();
+	Shape shape;
+
+	Map map1(shape.GetMapShape());
+	Player player(2, 2, shape.GetPlayerShape());
+	player.SetMap(&map1);
 
 	while (true)
 	{
 
-		player.show();
-	
-		Sleep(1000);
-		player.GetBuffer()->FlipBuffer();
-		player.GetBuffer()->ClearBuffer();
-		
+		player.Show();
+		player.Move();
+		map1.Show();
+
+		buffer.FlipBuffer();
+		buffer.ClearBuffer();
+		Sleep(30);
 	}
-	player.GetBuffer()->ReleaseBuffer();
-
-
+	buffer.ReleaseBuffer();
 
 	return 0;
 }
