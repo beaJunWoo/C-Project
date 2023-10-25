@@ -27,7 +27,7 @@ void Obj::Crash()
 	{
 		for (int X = 0; X < strlen(shape[Y]) / 2; X++)
 		{
-			if (map->GetMap()[y + Y][x + X] == '1')
+			if (map->GetMap()[(int)y + Y][(int)x + X] == '1')
 			{
 				if (dir == LEFT) { x++; }
 				if (dir == RIGHT) { x--; }
@@ -39,63 +39,51 @@ void Obj::Crash()
 	}
 
 }
+
 void Obj::Gravity()
 {
 	if (GetAsyncKeyState(VK_SPACE) && !jump)
 	{
 		jump = true;
-		V = 5.0f;
-		Time = 0;
+		Graivty_V =10.0f;
+		Gravity_Time = 0.0f;
 	}
 	if (jump)
 	{
-		int nowY = y;
-		y =y- V * Time - 0.5 * G * Time * Time;
+		Gravity_Time += 0.1;
+		float NowY = y + shape.size();
+		y = y - Graivty_V * Gravity_Time + 0.5f + Graivty_G * Gravity_Time * Gravity_Time;
+		float NextY =y + shape.size();
+		float Gab = NextY -NowY+0.4;
 
-		int Gab = y-nowY;
-		V = V - G * Time;
-
-		Time += 0.03f;
-
-		for (int objY = 0; objY <= Gab; objY++)
+		if (Gab > 0)
 		{
-			for (int objX = 0; objX < strlen(shape[shape.size() - 1]) / 2; objX++)
+			for (int i = 0; i < (int)Gab; i++)
 			{
-				if (y + objY >= map->GetMap().size()) { y = map->GetMap().size() - 1 - shape.size(); jump = false; break; }
-				else
+				for (int j = 0; j < strlen(shape[shape.size() - 1])/2; j++)
 				{
-					if (map->GetMap()[y + objY][x+objX] == '1')
+					if (map->GetMap()[(int)NowY + i ][(int)x+j] == '1')
 					{
-						y = y + objY - shape.size();
+						y = NowY -shape.size() + i;
 						jump = false;
-						V = 0.0;
-						Time = 0.0f;
+						Graivty_V = 0.0f;
+						Gravity_Time = 0.0f;
 						break;
 					}
 				}
+				if (!jump) { break; }
 			}
-			if (!jump) { break; }
-		}
-		for (int objY = 0; objY <= Gab * -1; objY++)
-		{
-			for (int objX = 0; objX < strlen(shape[shape.size() - 1]) / 2; objX++)
-			{
-				if (map->GetMap()[y + objY][x + objX] == '1')
-				{
-					y = y + objY + shape.size();
-					jump = false;
-					Time = 0.0f;
-					V = 0.0;
-					break;
-				}
-			}
-			if (!jump) { break; }
 		}
 	}
-	bool is_fall = true;
-	for (int i = 0; i < strlen(shape[shape.size() - 1])/2; i++)
+	bool OnAir = true;
+	for (int j = 0; j < strlen(shape[shape.size() - 1]) / 2; j++)
 	{
-		if (map->GetMap()[y + shape.size()][x + i] == '1' && !jump) { is_fall = false; }
+		if (map->GetMap()[(int)y+ shape.size()][(int)x + j] == '1')
+		{
+			OnAir = false;
+			break;
+		}
 	}
-	if (is_fall) { jump = true; }
+	if (OnAir) { jump = true; }
 }
+

@@ -1,8 +1,8 @@
 #pragma once 
 #include <Windows.h>
 
-#define BufferWidth 80
-#define BufferHeight 40
+#define BufferWidth 200
+#define BufferHeight 200
 
 
 static HANDLE hBuffer[2];
