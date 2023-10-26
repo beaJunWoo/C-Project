@@ -38,8 +38,8 @@ enum Color
 class Obj
 {
 protected:
-	float x;
-	float y;
+	int x;
+	int y;
 	Color color;
 	Dir dir;
 	Map* map = nullptr;
@@ -47,12 +47,17 @@ protected:
 
 	//Engine
 	bool jump = false;
+	bool canJump = false;
+	bool JumpControl = false;
+	bool Acceleration_on = true;
+
 	float Graivty_G = 9.81f;
 	float Graivty_V = 5.0f; 
 	float Gravity_Time = 0.0f;
 
+	float Acceleration_MaxV = 3.0f;
 	float Acceleration_V = 0.0f;
-	float Acceleration_a = 0.4f;
+	float Acceleration_a = 1.5f;
 	float Acceleration_Time = 0.0f;
 public:
 	Obj() {}
@@ -69,10 +74,12 @@ public:
 	void SetMap(Map* map);
 	void SetX(int x) { this->x = x; }
 	void SetY(int y) { this->y = y; }
+	void SetDir(Dir dir) { this->dir = dir; }
+	void SetACRT_Time(float Acceleration_Time) { this->Acceleration_Time = Acceleration_Time; }
 
 	//Engine
 	void Gravity();
 	void Crash();
-	virtual void Acceleration() = 0;
+	void Acceleration();
 };
 

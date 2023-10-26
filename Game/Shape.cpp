@@ -7,6 +7,10 @@ Shape::Shape()
 	PlayerShape.push_back("■■■");
 	PlayerShape.push_back("■■■");
 
+	//Box 모양
+	BoxShape.push_back("□□");
+	BoxShape.push_back("□□");
+
 	//map 모양
 	MapShape.push_back("11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
 	MapShape.push_back("10000000000000000000000000000000000000000000000000000000000000000000000000000000000000001");

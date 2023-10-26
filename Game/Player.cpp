@@ -62,36 +62,39 @@ void Player::Acceleration()
 		Acceleration_V = Acceleration_a * Acceleration_Time;
 		if (GetAsyncKeyState(VK_LEFT))
 		{ 
-			if (dir == RIGHT && Acceleration_Time > 0) { Acceleration_Time -= 2.0f; }
+			if (dir == RIGHT && Acceleration_Time > 0) { Acceleration_Time -= 0.4f; }
 			else
 			{
 				dir = LEFT;
-				Acceleration_Time += 1.0f;
+				if(Acceleration_MaxV> Acceleration_V)
+					Acceleration_Time += 0.2f;
 			}
 			
 		}
 		if (GetAsyncKeyState(VK_RIGHT))
 		{ 
-			if (dir == LEFT && Acceleration_Time > 0) { Acceleration_Time -= 2.0f; }
+			if (dir == LEFT && Acceleration_Time > 0) { Acceleration_Time -= 0.4f; }
 			else
 			{
 				dir = RIGHT;
-				Acceleration_Time += 1.0f;
+				if (Acceleration_MaxV > Acceleration_V)
+					Acceleration_Time += 0.2f;
 			}
 			
 		}
-		if (!(GetAsyncKeyState(VK_RIGHT) || GetAsyncKeyState(VK_LEFT)))
+		if (!(GetAsyncKeyState(VK_LEFT)|| GetAsyncKeyState(VK_RIGHT)))
 		{
 			if (Acceleration_Time <= 0)
 				dir = STAY;
 		
 			if (Acceleration_Time > 0)
-				Acceleration_Time -= 1.0f;
+				Acceleration_Time -= 0.2f;
 		}
 		if (dir == RIGHT) 
 		{
 			float NowX = x;
-			x += Acceleration_V; 
+			if(Acceleration_V>0)
+				x += Acceleration_V; 
 			float NextX = x;
 			float Gab = NextX - NowX+0.4;
 			for (int i = 0; i <= Gab; i++)
@@ -127,7 +130,73 @@ void Player::Acceleration()
 				}
 				if (dir == RIGHT) { break; }
 			}
-			
 		}
 	}
+}
+
+void Player::Gravity()
+{
+	if (GetAsyncKeyState(VK_SPACE) && !jump && canJump)
+	{
+		jump = true;
+		Graivty_V = 5.0f;
+		Gravity_Time = 0.0f;
+	}
+	if (jump)
+	{
+		Gravity_Time += 0.1;
+		float NowY = y + shape.size();
+		y = y - Graivty_V * Gravity_Time + 0.5f * Graivty_G * Gravity_Time * Gravity_Time;
+		float NextY = y + shape.size();
+		float Gab = NextY - NowY;
+		if (Gab < 0)
+		{
+			for (int i = 0; i < (int)Gab * -1; i++)
+			{
+				for (int j = 0; j < strlen(shape[0]) / 2; j++)
+				{
+					if (map->GetMap()[(int)NowY - i - shape.size() - 1][(int)(x + j)] == '1')
+					{
+						y = NowY - i - shape.size();
+						jump = false;
+						Graivty_V = 0.0f;
+						Gravity_Time = 0.0f;
+						break;
+					}
+				}
+				if (!jump) { break; }
+			}
+		}
+		if (Gab > 0)
+		{
+			for (int i = 0; i < (int)Gab; i++)
+			{
+				for (int j = 0; j < strlen(shape[shape.size() - 1]) / 2; j++)
+				{
+					if (map->GetMap()[(int)NowY + i][(int)x + j] == '1')
+					{
+						y = NowY - shape.size() + i;
+						jump = false;
+						Graivty_V = 0.0f;
+						Gravity_Time = 0.0f;
+						break;
+					}
+				}
+				if (!jump) { break; }
+			}
+		}
+
+	}
+	bool OnAir = true;
+	for (int j = 0; j < strlen(shape[shape.size() - 1]) / 2; j++)
+	{
+		if (map->GetMap()[(int)y + shape.size()][(int)x + j] == '1')
+		{
+			OnAir = false;
+			break;
+		}
+	}
+	if (OnAir) { jump = true; }
+	else
+		canJump = true;
 }

@@ -31,6 +31,9 @@
     <Filter Include="소스 파일\Map">
       <UniqueIdentifier>{1377ea09-8697-4731-ae4b-a8f0af59c6b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Obj_By_Obj_Crah">
+      <UniqueIdentifier>{42b49861-683f-4c79-8940-bfbfa9b37359}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -51,6 +54,9 @@
     <ClCompile Include="Map.cpp">
       <Filter>소스 파일\Map</Filter>
     </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>소스 파일\Obj_By_Obj_Crah</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Buffer.h">
@@ -67,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="Map.h">
       <Filter>소스 파일\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>소스 파일\Obj_By_Obj_Crah</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
