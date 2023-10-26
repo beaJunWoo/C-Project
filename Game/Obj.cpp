@@ -43,20 +43,24 @@ void Obj::Crash()
 
 void Obj::Acceleration()
 {
-	
-	//Acceleration_V
-	//Acceleration_a
-	//Acceleration_Time
 	if (Acceleration_on)
 	{
 
+		Acceleration_V = Acceleration_a * Acceleration_Time;
+		if (Acceleration_Time > 0) { Acceleration_Time -= 0.4f; }
 		
-		x += Acceleration_V;
+		
+		if (Acceleration_Time <= 0)
+				dir = STAY;
+
+		if (Acceleration_Time > 0)
+				Acceleration_Time -= 0.2f;
+		
 		if (dir == RIGHT)
 		{
 			float NowX = x;
 			if (Acceleration_V > 0)
-			Acceleration_V = Acceleration_a * Acceleration_Time;
+				x += Acceleration_V;
 			float NextX = x;
 			float Gab = NextX - NowX + 0.4;
 			for (int i = 0; i <= Gab; i++)

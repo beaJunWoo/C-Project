@@ -14,6 +14,12 @@ enum Dir
 	STAY
 };
 
+enum MoveDir
+{
+	M_LEFT,
+	M_RIGHT,
+	M_STAY
+};
 enum Color
 {
 	BLACK,
@@ -42,6 +48,7 @@ protected:
 	int y;
 	Color color;
 	Dir dir;
+	MoveDir movedir;
 	Map* map = nullptr;
 	vector<const char*> shape;
 
@@ -67,8 +74,9 @@ public:
 public:
 	int GetX() { return x; }
 	int GetY() { return y; }
-	Dir GetDir() { return dir; }
+	MoveDir GetMoveDir() { return movedir; }
 	vector<const char*> GetShape() { return shape; }
+	float GetACRT_TIME(){ return Acceleration_Time; }
 
 	void Show();
 	void SetMap(Map* map);

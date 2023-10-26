@@ -11,17 +11,21 @@ void Engine::ObjCrash()
 		player.GetY()<obj.GetY()+obj.GetShape().size()&&
 		obj.GetY() <player.GetY()+player.GetShape().size()){
 
-		if (player.GetDir() == LEFT)
+		if (player.GetMoveDir() == M_LEFT)
 		{
 			player.SetDir(RIGHT);
 			obj.SetDir(LEFT);
-			obj.SetACRT_Time(5.0f);
+			obj.SetACRT_Time(player.GetACRT_TIME()*2.0f);
 		}
-		if (player.GetDir() == RIGHT)
+		if (player.GetMoveDir() == M_RIGHT)
 		{
 			player.SetDir(LEFT);
 			obj.SetDir(RIGHT);
-			obj.SetACRT_Time(5.0f);
+			obj.SetACRT_Time(player.GetACRT_TIME() * 2.0f);
+		}
+		if (player.GetMoveDir() == M_STAY)
+		{
+			
 		}
 	}
 }

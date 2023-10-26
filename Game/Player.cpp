@@ -11,20 +11,20 @@ void Player::Move()
 {
 	if (GetAsyncKeyState(VK_LEFT))
 	{
-		
+		dir = LEFT;
 		if (!Acceleration_on)
 		{
-			dir = LEFT;
+			
 			x--;	
 			Crash();	
 		}
 	}
 	if (GetAsyncKeyState(VK_RIGHT))
 	{
-		
+		dir = RIGHT;
 		if (!Acceleration_on)
 		{
-			dir = RIGHT;
+			
 			x++;
 			Crash();
 		}
@@ -62,10 +62,10 @@ void Player::Acceleration()
 		Acceleration_V = Acceleration_a * Acceleration_Time;
 		if (GetAsyncKeyState(VK_LEFT))
 		{ 
-			if (dir == RIGHT && Acceleration_Time > 0) { Acceleration_Time -= 0.4f; }
+			if (movedir == M_RIGHT && Acceleration_Time > 0) { Acceleration_Time -= 0.4f; }
 			else
 			{
-				dir = LEFT;
+				movedir = M_LEFT;
 				if(Acceleration_MaxV> Acceleration_V)
 					Acceleration_Time += 0.2f;
 			}
@@ -73,10 +73,10 @@ void Player::Acceleration()
 		}
 		if (GetAsyncKeyState(VK_RIGHT))
 		{ 
-			if (dir == LEFT && Acceleration_Time > 0) { Acceleration_Time -= 0.4f; }
+			if (movedir == M_LEFT && Acceleration_Time > 0) { Acceleration_Time -= 0.4f; }
 			else
 			{
-				dir = RIGHT;
+				movedir = M_RIGHT;
 				if (Acceleration_MaxV > Acceleration_V)
 					Acceleration_Time += 0.2f;
 			}
@@ -85,12 +85,12 @@ void Player::Acceleration()
 		if (!(GetAsyncKeyState(VK_LEFT)|| GetAsyncKeyState(VK_RIGHT)))
 		{
 			if (Acceleration_Time <= 0)
-				dir = STAY;
+				movedir = M_STAY;
 		
 			if (Acceleration_Time > 0)
 				Acceleration_Time -= 0.2f;
 		}
-		if (dir == RIGHT) 
+		if (movedir == M_RIGHT)
 		{
 			float NowX = x;
 			if(Acceleration_V>0)
@@ -103,15 +103,15 @@ void Player::Acceleration()
 				{
 					if (map->GetMap()[(int)y+j][(int)NowX + i + (int)(strlen(shape[j]) /2.0)] == '1')
 					{
-						dir = LEFT;
+						movedir = M_LEFT;
 						x = (int)NowX + i + ((double)strlen(shape[j]) / 2.0) -1;
 						break;
 					}
 				}
-				if (dir == LEFT) { break; }
+				if (movedir == M_LEFT) { break; }
 			}
 		}
-		if (dir == LEFT) 
+		if (movedir == M_LEFT)
 		{ 
 			float NowX = x;
 			x -= Acceleration_V;
@@ -123,12 +123,12 @@ void Player::Acceleration()
 				{
 					if (map->GetMap()[(int)y + j][(int)NowX - i] == '1')
 					{
-						dir = RIGHT;
+						movedir = M_RIGHT;
 						x = (int)NowX - i+1 ;
 						break;
 					}
 				}
-				if (dir == RIGHT) { break; }
+				if (movedir == M_RIGHT) { break; }
 			}
 		}
 	}
