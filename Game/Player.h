@@ -8,6 +8,8 @@ public:
 	void Move();
 	virtual void Acceleration();
 	void Gravity();
+
+
 };
 
 

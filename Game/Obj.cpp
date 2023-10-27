@@ -47,7 +47,7 @@ void Obj::Acceleration()
 	{
 
 		Acceleration_V = Acceleration_a * Acceleration_Time;
-		if (Acceleration_Time > 0) { Acceleration_Time -= 0.4f; }
+		if (Acceleration_Time > 0) { Acceleration_Time -= 0.1f; }
 		
 		
 		if (Acceleration_Time <= 0)
@@ -62,7 +62,7 @@ void Obj::Acceleration()
 			if (Acceleration_V > 0)
 				x += Acceleration_V;
 			float NextX = x;
-			float Gab = NextX - NowX + 0.4;
+			Gab = NextX - NowX + 0.4;
 			for (int i = 0; i <= Gab; i++)
 			{
 				for (int j = 0; j < shape.size(); j++)

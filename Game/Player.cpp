@@ -12,9 +12,8 @@ void Player::Move()
 	if (GetAsyncKeyState(VK_LEFT))
 	{
 		dir = LEFT;
-		if (!Acceleration_on)
+		if (movedir ==M_STAY)
 		{
-			
 			x--;	
 			Crash();	
 		}
@@ -22,9 +21,8 @@ void Player::Move()
 	if (GetAsyncKeyState(VK_RIGHT))
 	{
 		dir = RIGHT;
-		if (!Acceleration_on)
+		if (movedir == M_STAY)
 		{
-			
 			x++;
 			Crash();
 		}
@@ -62,33 +60,33 @@ void Player::Acceleration()
 		Acceleration_V = Acceleration_a * Acceleration_Time;
 		if (GetAsyncKeyState(VK_LEFT))
 		{ 
-			if (movedir == M_RIGHT && Acceleration_Time > 0) { Acceleration_Time -= 0.4f; }
+			if (movedir == M_RIGHT && Acceleration_Time > 0 &&!jump) { Acceleration_Time -= 0.24f; }
 			else
 			{
 				movedir = M_LEFT;
 				if(Acceleration_MaxV> Acceleration_V)
-					Acceleration_Time += 0.2f;
+					Acceleration_Time += 0.12f;
 			}
 			
 		}
 		if (GetAsyncKeyState(VK_RIGHT))
 		{ 
-			if (movedir == M_LEFT && Acceleration_Time > 0) { Acceleration_Time -= 0.4f; }
+			if (movedir == M_LEFT && Acceleration_Time > 0 && !jump) { Acceleration_Time -= 0.24f; }
 			else
 			{
 				movedir = M_RIGHT;
 				if (Acceleration_MaxV > Acceleration_V)
-					Acceleration_Time += 0.2f;
+					Acceleration_Time +=0.12f; 
 			}
 			
 		}
-		if (!(GetAsyncKeyState(VK_LEFT)|| GetAsyncKeyState(VK_RIGHT)))
+		if (!(GetAsyncKeyState(VK_LEFT)|| GetAsyncKeyState(VK_RIGHT)) && !jump)
 		{
 			if (Acceleration_Time <= 0)
 				movedir = M_STAY;
 		
 			if (Acceleration_Time > 0)
-				Acceleration_Time -= 0.2f;
+				Acceleration_Time -= 0.15f;
 		}
 		if (movedir == M_RIGHT)
 		{
