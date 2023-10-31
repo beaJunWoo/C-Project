@@ -1,2 +1,43 @@
-﻿  Engine.cpp
-  Game.vcxproj -> C:\Users\Administrator\Desktop\새 폴더\C-Project\Game\x64\Debug\Game.exe
+﻿  Buffer.cpp
+C:\Users\Administrator\Desktop\C-Project\Game\Buffer.cpp(43,18): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Buffer.cpp(43,23): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Buffer.cpp(49,65): warning C4267: '인수': 'size_t'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Engine.cpp
+  Main.cpp
+  Map.cpp
+  Obj.cpp
+C:\Users\Administrator\Desktop\C-Project\Game\Obj.cpp(61,15): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Obj.cpp(63,10): warning C4244: '+=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Obj.cpp(64,16): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Obj.cpp(65,23): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Obj.cpp(73,60): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Obj.cpp(82,15): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Obj.cpp(83,9): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Obj.cpp(84,16): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Obj.cpp(85,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Obj.cpp(114,22): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Obj.cpp(115,14): warning C4244: '초기화 중': 'unsigned __int64'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Obj.cpp(116,36): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Obj.cpp(117,15): warning C4244: '초기화 중': 'unsigned __int64'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Obj.cpp(127,20): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Obj.cpp(145,31): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Player.cpp
+C:\Users\Administrator\Desktop\C-Project\Game\Player.cpp(93,15): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Player.cpp(95,10): warning C4244: '+=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Player.cpp(96,16): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Player.cpp(97,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Player.cpp(105,60): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Player.cpp(114,15): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Player.cpp(115,9): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Player.cpp(116,16): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Player.cpp(117,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Player.cpp(145,22): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Player.cpp(146,14): warning C4244: '초기화 중': 'unsigned __int64'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Player.cpp(147,36): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Player.cpp(148,15): warning C4244: '초기화 중': 'unsigned __int64'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Player.cpp(158,20): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C-Project\Game\Player.cpp(176,31): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Shape.cpp
+  코드를 생성하고 있습니다...
+  LINK : C:\Users\Administrator\Desktop\C-Project\Game\x64\Debug\Game.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
+  Game.vcxproj -> C:\Users\Administrator\Desktop\C-Project\Game\x64\Debug\Game.exe
